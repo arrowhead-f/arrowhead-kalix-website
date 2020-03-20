@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+
+@font-face {
+    font-family: "Noto Sans Fallback";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/NotoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans Fallback";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/NotoSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans Fallback";
+    font-style: italic;
+    font-weight: 700;
+    src: url("../fonts/NotoSans-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans Fallback";
+    font-style: italic;
+    font-weight: 400;
+    src: url("../fonts/NotoSans-RegularItalic.ttf") format("truetype");
+}
+
+html {
+    font-family: "Noto Sans", "Noto Sans Fallback", verdana;
+    height: 100%;
+    line-height: 1.3;
+}
+
+a {
+    color: #b8363a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background-color: #fff;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.125rem;
+    margin: 0;
+    min-width: 20rem;
+    height: 100%;
+}
+
+body > header {
+    align-items: center;
+    background: linear-gradient(0deg, #fafafa 0%, #eaeaea 62%, #ddd 100%);
+    display: flex;
+    min-height: 8rem;
+    justify-content: center;
+}
+
+body > main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+body > main > article {
+    font-size: 1rem;
+    max-width: 40rem;
+}
+
+body > main > article b {
+    color: #8c0f64;
+}
+
+body > main > article > h1 {
+    color: #b8363a;
+    margin-top: 0;
+}
+
+body > main > article > h2,
+body > main > article > h3,
+body > main > article > h4 {
+    color: #444;
+}
+
+body > main > article > p.lead {
+    color: #444;
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+body > main > article > .code {
+    display: flex;
+}
+
+body > main > article > .code > .line-numbers {
+    color: #888;
+}
+
+body > main > article > .code > .text {
+    border-left: 0.1rem solid #ccc;
+    color: #222;
+    margin-left: 1rem;
+    overflow-x: scroll;
+    padding-left: 1rem;
+}
+
+body > footer {
+    background-color: #555;
+    color: #ffffffaa;
+    font-size: 0.8rem;
+    line-height: 3rem;
+    padding: 0 calc(50% - 20rem);
+}
+
+h1 {
+    font-size: 2.6em;
+    margin: 1.5rem 0 1.25rem 0;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin: 1rem 0 0.75rem 0;
+}
+
+h3 {
+    font-size: 1.6em;
+    margin: 1rem 0 0.75rem 0;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin: 1rem 0 0.75rem 0;
+}
+
+p {
+    margin: 0.75rem 0;
+    text-align: justify;
+}
+
+pre .constant {
+    color: #8c0f64;
+    font-style: italic;
+    font-weight: bold;
+}
+
+pre .escape {
+    color: #e75f0e;
+}
+
+pre .keyword {
+    color: #8c0f64;
+    font-weight: bold;
+}
+
+pre .string {
+    color: #b8363a;
+    font-weight: bold;
+}
+
+pre .variable {
+    font-style: italic;
+}
+
+@media only screen and (max-width: 41rem) {
+
+    body > main {
+        align-items: inherit;
+    }
+
+    body > main > article > p.lead {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    body > main > article > .code {
+        font-size: 0.9rem;
+    }
+
+
+    body > main > article > .code > .text {
+        margin-left: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    body > footer {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1.25rem 0 0.75rem 0;
+    }
+
+    h2 {
+        font-size: 1.4em;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    h3 {
+        font-size: 1.25em;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    h4 {
+        font-size: 1.125em;
+        margin: 1rem 0 0.25rem 0;
+    }
+
+}
+
+@media only screen and (max-width: 31rem) {
+
+    html {
+        line-height: 1.2;
+    }
+
+    body > main {
+        padding: 1.333rem;
+    }
+
+    body > main > article > .code {
+        font-size: 0.75rem;
+    }
+
+    body > main > article > .code > .text {
+        border-left: none;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        margin: 1.25rem 0 0.75rem 0;
+    }
+
+    h2 {
+        font-size: 1.25em;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    h3 {
+        font-size: 1.125em;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    h4 {
+        font-size: 1.075em;
+        margin: 1rem 0 0.25rem 0;
+    }
+
+}

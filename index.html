@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+    <title>arkalix.se</title>
+    <link rel="stylesheet" type="text/css" href="styles/2020.3.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" width="240" height="60" alt="ar:kalix" />
+    </header>
+    <main>
+        <article>
+            <h1>Industrial IoT with Java 11</h1>
+            <p class="lead"><b>ar:kalix</b> is a set of Java libraries designed to simplify the creation of Arrowhead Framework compliant industrial IoT systems. The libraries provide a platform for modern asynchronous I/O, utilities for seamless message encoding/decoding, robust abstractions for creating and communicating with Arrowhead-compliant systems, as well as a plugin-system that makes it convenient to reuse service integrations.</p>            
+
+            <h2>What does it look like?</h2>
+            <p>In the below Java code example, a <b>system</b> provides a <b>service</b> with a single HTTP-TLS-JSON endpoint:</p>
+
+            <section class="code">
+                <pre class="line-numbers">
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+12
+13
+14
+15
+16
+17</pre>
+                <pre class="text">
+<span class="keyword">var</span> <span class="variable">system</span> = <span class="keyword">new</span> AhfSystem.Builder()​
+    .keyStore(<span class="variable">keyStore</span>)​
+    .trustStore(<span class="variable">trustStore</span>)​
+    .build();​
+​
+<span class="variable">system</span>.provide(<span class="keyword">new</span> HttpService()​
+    .name(<span class="string">"kalix-example-service"</span>)​
+    .encodings(<span class="constant">JSON</span>)​
+    .security(<span class="keyword">new</span> HttpTokenAuthorization(<span class="variable">authPublicKey</span>))​
+    .basePath(<span class="string">"/example"</span>)​
+
+    .get(<span class="string">"/greeting"</span>, (<span class="variable">request</span>, <span class="variable">response</span>) -> {​
+        <span class="variable">response</span>.status(<span class="constant">OK</span>)
+            .body(<span class="string">"{<span class="escape">\"</span>text<span class="escape">\"</span>:<span class="escape">\"</span>Hello, Arrowhead!<span class="escape">\"</span>}"</span>);​
+        <span class="keyword">return</span> done();​
+     }));</pre>
+            </section>
+
+            <h2>Systems, Services and Interfaces</h2>
+            <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that an additional set of standards exists to ensure that these systems meet specific security, robustness and interoperability requirements. Lines 1-4 in the above example demonstrates the creation of such a system associated with a <i>key store</i>, representing the systems own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
+            <p>Each system may <i>provide</i> one or more <b>services</b>, which could be thought of as regular network APIs, as well as <i>consume</i> the services of other systems. Each service is concretely realized by a network <b>interface</b>, which is a specific transport protocol stack and encoding, such as HTTP-TLS-JSON or MQTT-TLS-XML. Lines 6-17 of the above example show the creation of an HTTP-TLS-JSON service with the single HTTP endpoint <b>GET /example/greetings</b>, as well as assigning that service to the system created on line 1.</p>
+
+            <h2>Where Do I Get It?</h2>
+            <p>The library is currently only available as source code downloadable via <a href="https://github.com/emanuelpalm/arrowhead-kalix">GitHub</a>, but work in underway to make it available also through the Maven Central Repository.</p>
+
+            <h2>How Mature Is It?</h2>
+            <p><a href="https://arrowhead.eu" target="_blank">Arrowhead Framework</a> is an on-going standardization and research effort aimed at enabling the creation of world-class <a href="https://arrowhead.eu/arrowheadframework/this-is-it">industrial automation systems</a>. A substantial work remains before the framework has been properly standardized, which means that any implementation is bound to be unstable. Work on this library commensed as a response to the need for a suitable set of abstractions while evaluating the framework. If you are interested in contributing to its maturity and further development, please contact Emanuel Palm via <b>[emanuel DOT palm AT arkalix DOT se]</b>.</p>
+        </article>
+    </main>
+    <footer>
+        &#169; 2020 Emanuel Palm
+    </footer>
+</body>
+</html>
