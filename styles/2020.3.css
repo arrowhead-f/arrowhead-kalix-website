@@ -58,6 +58,7 @@ body {
 body > header {
     align-items: center;
     background: linear-gradient(0deg, #fafafa 0%, #eaeaea 62%, #ddd 100%);
+    border-bottom: 0.4rem solid #ddd;
     display: flex;
     min-height: 8rem;
     justify-content: center;

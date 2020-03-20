@@ -55,7 +55,7 @@
      }));</pre>
             </section>
 
-            <h2>Systems, Services and Interfaces</h2>
+            <h2>What Am I Looking At?</h2>
             <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that an additional set of standards exists to ensure that these systems meet specific security, robustness and interoperability requirements. Lines 1-4 in the above example demonstrates the creation of such a system associated with a <i>key store</i>, representing the systems own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
             <p>Each system may <i>provide</i> one or more <b>services</b>, which could be thought of as regular network APIs, as well as <i>consume</i> the services of other systems. Each service is concretely realized by a network <b>interface</b>, which is a specific transport protocol stack and encoding, such as HTTP-TLS-JSON or MQTT-TLS-XML. Lines 6-17 of the above example show the creation of an HTTP-TLS-JSON service with the single HTTP endpoint <b>GET /example/greetings</b>, as well as assigning that service to the system created on line 1.</p>
 
