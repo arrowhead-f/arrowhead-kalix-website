@@ -341,4 +341,8 @@ pre .variable {
         margin: 1rem 0 0.25rem 0;
     }
 
+    p {
+        text-align: inherit;
+    }
+
 }
