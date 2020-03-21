@@ -30,8 +30,8 @@
 
 @font-face {
     font-family: "Noto Mono";
-    font-style: italic;
-    font-weight: 300;
+    font-style: normal;
+    font-weight: 400;
     src: url("../fonts/noto-mono/NotoMono-Regular.ttf") format("truetype");
 }
 
@@ -175,6 +175,23 @@ body > main > article .tabbed-box > nav > a.selected {
     background-color: #fff;
     margin-bottom: -0.10rem;
     padding-bottom: 0.85rem;
+}
+
+body > main > article .tabbed-box .code {
+    border: 0.1rem solid #ccc;
+}
+
+body > main > article .tabbed-box .code > pre {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+body > main > article .tabbed-box .code > pre:first-child {
+    padding-left: 1rem;
+}
+
+body > main > article .tabbed-box .code > pre:last-child {
+    padding-right: 0.5rem;
 }
 
 body > footer {
