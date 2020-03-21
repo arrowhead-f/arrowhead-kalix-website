@@ -105,7 +105,7 @@ body > main > article > p.lead {
     margin: 1rem 0;
 }
 
-body > main > article > .code {
+body > main > article .code {
     margin: 1.25rem 0;
 }
 
@@ -125,7 +125,7 @@ body > main > article .code > .text {
     padding-left: 1rem;
 }
 
-body > main > article > .tabbed-box {
+body > main > article .tabbed-box {
     margin: 1.25rem 0;
 }
 
@@ -140,6 +140,10 @@ body > main > article .tabbed-box > :not(nav):not(.selected) {
 
 body > main > article .tabbed-box > :not(nav) > :first-child {
     margin-top: 0;
+}
+
+body > main > article .tabbed-box > :not(nav) > :last-child {
+    margin-bottom: 0;
 }
 
 body > main > article .tabbed-box > nav {
