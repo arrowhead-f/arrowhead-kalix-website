@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
     <title>arkalix.se</title>
     <link rel="stylesheet" type="text/css" href="styles/2020.3.css">
+    <script type="text/javascript" src="js/tabbed-box.js"></script>
 </head>
 <body>
     <header>
@@ -16,11 +17,10 @@
             <p class="lead"><b>ar:kalix</b> is a set of Java libraries designed to simplify the creation of Arrowhead Framework compliant industrial IoT systems. The libraries provide a platform for modern asynchronous I/O, utilities for seamless message encoding/decoding, robust abstractions for creating and communicating with Arrowhead-compliant systems, as well as a plugin-system that makes it convenient to reuse service integrations.</p>            
 
             <h2>What does it look like?</h2>
-            <p>In the below Java code example, a <b>system</b> provides a <b>service</b> with a single HTTP-TLS-JSON endpoint:</p>
+            <p>In the below code example, a <b>system</b> provides a HTTP-TLS-JSON <b>service</b> with a single endpoint <b>GET /example/greeting</b>:</p>
 
             <section class="code">
-                <pre class="line-numbers">
- 1
+                <pre class="line-numbers"> 1
  2
  3
  4
@@ -36,8 +36,7 @@
 15
 16
 17</pre>
-                <pre class="text">
-<span class="keyword">var</span> <span class="variable">system</span> = <span class="keyword">new</span> AhfSystem.Builder()​
+                <pre class="text"><span class="keyword">var</span> <span class="variable">system</span> = <span class="keyword">new</span> ArSystem.Builder()​
     .keyStore(<span class="variable">keyStore</span>)​
     .trustStore(<span class="variable">trustStore</span>)​
     .build();​
@@ -45,7 +44,7 @@
 <span class="variable">system</span>.provide(<span class="keyword">new</span> HttpService()​
     .name(<span class="string">"kalix-example-service"</span>)​
     .encodings(<span class="constant">JSON</span>)​
-    .security(<span class="keyword">new</span> HttpTokenAuthorization(<span class="variable">authPublicKey</span>))​
+    .security(<span class="constant">TOKEN</span>)​
     .basePath(<span class="string">"/example"</span>)​
 
     .get(<span class="string">"/greeting"</span>, (<span class="variable">request</span>, <span class="variable">response</span>) -> {​
@@ -56,14 +55,82 @@
             </section>
 
             <h2>What Am I Looking At?</h2>
-            <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that an additional set of standards exists to ensure that these systems meet specific security, robustness and interoperability requirements. Lines 1-4 in the above example demonstrates the creation of such a system associated with a <i>key store</i>, representing the systems own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
-            <p>Each system may <i>provide</i> one or more <b>services</b>, which could be thought of as regular network APIs, as well as <i>consume</i> the services of other systems. Each service is concretely realized by a network <b>interface</b>, which is a specific transport protocol stack and encoding, such as HTTP-TLS-JSON or MQTT-TLS-XML. Lines 6-17 of the above example show the creation of an HTTP-TLS-JSON service with the single HTTP endpoint <b>GET /example/greetings</b>, as well as assigning that service to the system created on line 1.</p>
+            <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that it must meet certain security and interoperability requirements. Lines 1-4 demonstrate the creation of such a system associated with a <i>key store</i>, representing the systems own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
+            <p>Each system may <i>provide</i> one or more <b>services</b>, which could be thought of as regular distributed APIs, as well as <i>consume</i> the services of other systems. Each service is concretely realized by a network <b>interface</b>, which is a specific transport protocol stack, transport security and encoding, such as HTTP-TLS-JSON or MQTT-TLS-XML. Lines 6-17 show the creation of an HTTP-TLS-JSON service with the single HTTP endpoint <b>GET /example/greeting</b>, as well as assigning that service to the system created on lines 1-4.</p>
 
             <h2>Where Do I Get It?</h2>
-            <p>The library is currently only available as source code downloadable via <a href="https://github.com/emanuelpalm/arrowhead-kalix">GitHub</a>, but work in underway to make it available also through the Maven Central Repository.</p>
+            <p>The library is currently available both via the Maven Central Repository and as source code downloadable via <a href="https://github.com/emanuelpalm/arrowhead-kalix">GitHub</a>.</p>
+
+            <section class="tabbed-box">
+                <nav>
+                    <a data-target-id="example-maven" class="selected">Maven</a>
+                    <a data-target-id="example-gradle">Gradle</a>
+                </nav>
+                <section id="example-maven" class="selected">
+                    <p>Copy the following into the <b>&lt;dependencies&gt;</b> element your project <b>pom.xml</b> file.</p>
+                    <section class="code">
+                        <pre class="line-numbers"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre>
+                        <pre class="text">&lt;dependency&gt;
+    &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
+    &lt;artifactId&gt;<span class="string">kalix-base</span>&lt;/artifactId&gt;
+    &lt;version&gt;<span class="string">0.1.0</span>&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
+    &lt;artifactId&gt;<span class="string">kalix-core-plugins</span>&lt;/artifactId&gt;
+    &lt;version&gt;<span class="string">0.1.0</span>&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
+    &lt;artifactId&gt;<span class="string">kalix-processors</span>&lt;/artifactId&gt;
+    &lt;version&gt;<span class="string">0.1.0</span>&lt;/version&gt;
+    &lt;scope&gt;<span class="string">provided</span>&lt;/scope&gt;
+&lt;/dependency&gt;</pre>
+                    </section>
+                    <p>Note that the libraries are only guaranteed to work with Java versions 11 and beyond. Make sure to declare what Java version to use in your <b>pom.xml</b> file. For example, adding the below statement to the <b>&lt;properties&gt;</b> element enables Java 11 if using Maven 3.</p>
+                    <section class="code">
+                        <pre class="line-numbers"> 1</pre>
+                        <pre class="text">&lt;maven.compiler.release&gt;<span class="string">11</span>&lt;/maven.compiler.release&gt;</pre>
+                    </section>
+                </section>
+                <section id="example-gradle">
+                    <p>Copy the following into the <b>dependencies</b> section your project <b>build.gradle</b> file.</p>
+                    <section class="code">
+                        <pre class="line-numbers"> 1
+ 2
+ 3</pre>
+                        <pre class="text">implementation <span class="string">'se.arkalix:kalix-base:0.1.0'</span>
+implementation <span class="string">'se.arkalix:kalix-core-plugins:0.1.0'</span>
+annotationProcessor <span class="string">'se.arkalix:kalix-processors:0.1.0'</span></pre>
+                    </section>
+                    <p>Note that the libraries are only guaranteed to work with Java versions 11 and beyond. Make sure to declare what Java version to use in your <b>build.gradle</b> file, such as:</p>
+                    <section class="code">
+                        <pre class="line-numbers"> 1</pre>
+                        <pre class="text">sourceCompatibility = <span class="string">11</span></pre>
+                    </section>
+                </section>
+            </section>
+
+            <h2>Where Can I Read More?</h2>
+            <p>The work of documenting the source code and providing examples is currently on-going. Please refer to the library <a href="https://github.com/emanuelpalm/arrowhead-kalix">GitHub</a> repository for more information until this site gets updated with additional examples and descriptions.</p>
 
             <h2>How Mature Is It?</h2>
-            <p><a href="https://arrowhead.eu" target="_blank">Arrowhead Framework</a> is an on-going standardization and research effort aimed at enabling the creation of world-class <a href="https://arrowhead.eu/arrowheadframework/this-is-it">industrial automation systems</a>. A substantial work remains before the framework has been properly standardized, which means that any implementation is bound to be unstable. Work on this library commensed as a response to the need for a suitable set of abstractions while evaluating the framework. If you are interested in contributing to its maturity and further development, please contact Emanuel Palm via <b>[emanuel DOT palm AT arkalix DOT se]</b>.</p>
+            <p><a href="https://arrowhead.eu" target="_blank">Arrowhead Framework</a> is an on-going standardization and research effort aimed at enabling the creation of world-class <a href="https://arrowhead.eu/arrowheadframework/this-is-it">industrial automation systems</a>. Even if <b>ar:kalix</b> is in a usable condition, a substantial work remains before the framework has been properly standardized, which means that any implementation of it is bound to be unstable. Work on this library commensed as a response to the need for a suitable set of abstractions while evaluating and developing the framework standard. If you are interested in contributing to the maturity and further development of <b>ar:kalix</b>, in some way or another, please do not hesitate to contact Emanuel Palm, the original author of the library, via <b>[emanuel DOT palm AT arkalix DOT se]</b>.</p>
         </article>
     </main>
     <footer>
