@@ -1,0 +1,15 @@
+se.arkalix
+se.arkalix.description
+se.arkalix.descriptor
+se.arkalix.dto
+se.arkalix.dto.binary
+se.arkalix.dto.json
+se.arkalix.net.http
+se.arkalix.net.http.client
+se.arkalix.net.http.service
+se.arkalix.plugin
+se.arkalix.security
+se.arkalix.util
+se.arkalix.util.annotation
+se.arkalix.util.concurrent
+se.arkalix.util.function

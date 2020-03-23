@@ -59,15 +59,42 @@ body {
     margin: 0;
     min-width: 20rem;
     height: 100%;
+    overflow-y: scroll;
 }
 
 body > header {
     align-items: center;
     background: linear-gradient(0deg, #fafafa 0%, #eaeaea 62%, #ddd 100%);
-    border-bottom: 0.4rem solid #ddd;
+    border-bottom: 0.125rem solid #ccc;
     display: flex;
-    min-height: 8rem;
+    flex-direction: column;
     justify-content: center;
+}
+
+body > header > img {
+    margin: 2.5rem 0 1.5rem 0;
+}
+
+body > header > nav {
+    align-self: flex-start;
+    background-color: #ccc;
+    display: flex;
+    margin-left: calc(50% - 20rem);
+}
+
+body > header > nav > a {
+    background-color: #eaeaea;
+    margin: 0.125rem 0 0 0.125rem;
+    padding: 0.25rem 1rem 0.375rem 1rem;
+}
+
+body > header > nav > a:last-child {
+    margin-right: 0.125rem;
+}
+
+body > header > nav > a.selected {
+    background-color: #fff;
+    margin-bottom: -0.125rem;
 }
 
 body > main {
@@ -84,7 +111,7 @@ body > main > article {
 }
 
 body > main > article b {
-    color: #b32941;
+    color: #475094;
 }
 
 body > main > article > h1 {
@@ -105,6 +132,15 @@ body > main > article > p.lead {
     margin: 1rem 0;
 }
 
+body > main > article > table.index > tbody > tr > td {
+    vertical-align: top;
+}
+
+body > main > article > table.index > tbody > tr > td:first-child {
+    white-space: nowrap;
+    padding-right: 1rem;
+}
+
 body > main > article .code {
     margin: 1.25rem 0;
 }
@@ -118,7 +154,7 @@ body > main > article .code > .line-numbers {
 }
 
 body > main > article .code > .text {
-    border-left: 0.1rem solid #ccc;
+    border-left: 0.0625rem solid #ccc;
     color: #222;
     margin-left: 1rem;
     overflow-x: auto;
@@ -130,7 +166,7 @@ body > main > article .tabbed-box {
 }
 
 body > main > article .tabbed-box > :not(nav) {
-    border: 0.1rem solid #444;
+    border: 0.0625rem solid #444;
     padding: 1rem;
 }
 
@@ -147,14 +183,13 @@ body > main > article .tabbed-box > :not(nav) > :last-child {
 }
 
 body > main > article .tabbed-box > nav {
-    display: flex;
+    background-color: #444;
+    display: inline-flex;
 }
 
 body > main > article .tabbed-box > nav > a {
     background-color: #eaeaea;
-    border-color: #444;
-    border-width: 0.1rem 0 0 0.1rem;
-    border-style: solid;
+    margin: 0.0625rem 0 0 0.0625rem;
     color: #475094;
     cursor: pointer;
     display: inline-block;
@@ -168,17 +203,17 @@ body > main > article .tabbed-box > nav > a:hover {
 }
 
 body > main > article .tabbed-box > nav > a:last-child {
-    border-right-width: 0.1rem;
+    margin-right: 0.0625rem;
 }
 
 body > main > article .tabbed-box > nav > a.selected {
     background-color: #fff;
-    margin-bottom: -0.10rem;
-    padding-bottom: 0.85rem;
+    margin-bottom: -0.0625rem;
+    padding-bottom: 0.8500rem;
 }
 
 body > main > article .tabbed-box .code {
-    border: 0.1rem solid #ccc;
+    border: 0.0625rem solid #ccc;
 }
 
 body > main > article .tabbed-box .code > pre {

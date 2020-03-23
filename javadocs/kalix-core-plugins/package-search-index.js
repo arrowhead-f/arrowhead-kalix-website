@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"se.arkalix.core.plugin.orc"},{"l":"se.arkalix.core.plugin.srv"},{"l":"se.arkalix.core.plugin.srv.dto"}]
