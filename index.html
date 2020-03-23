@@ -55,7 +55,7 @@
             </section>
 
             <h2>What Am I Looking At?</h2>
-            <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that it must meet certain security and interoperability requirements. Lines 1-4 demonstrate the creation of such a system associated with a <i>key store</i>, representing the systems own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
+            <p>An Arrowhead <b>system</b> could be thought of as a client or server in a traditional distributed application, with the exception that it must meet certain security and interoperability requirements. Lines 1-4 demonstrate the creation of such a system associated with a <i>key store</i>, representing the system's own certificate chain, as well as a <i>trust store</i>, representing all certificates trusted by the system.</p>
             <p>Each system may <i>provide</i> one or more <b>services</b>, which could be thought of as regular distributed APIs, as well as <i>consume</i> the services of other systems. Each service is concretely realized by a network <b>interface</b>, which is a specific transport protocol stack, transport security and encoding, such as HTTP-TLS-JSON or MQTT-TLS-XML. Lines 6-17 show the creation of an HTTP-TLS-JSON service with the single HTTP endpoint <b>GET /example/greeting</b>, as well as assigning that service to the system created on lines 1-4.</p>
 
             <h2>Where Do I Get It?</h2>
@@ -107,9 +107,10 @@
                         <pre class="line-numbers"> 1</pre>
                         <pre class="text">&lt;maven.compiler.release&gt;<span class="string">11</span>&lt;/maven.compiler.release&gt;</pre>
                     </section>
+                    <p>For a complete <b>pom.xml</b> example, please refer to the <a href="https://github.com/emanuelpalm/arrowhead-kalix-examples/blob/master/echo/pom.xml">examples repository</a>.</p>
                 </section>
                 <section id="example-gradle">
-                    <p>Copy the following into the <b>dependencies</b> section your project <b>build.gradle</b> file.</p>
+                    <p>Copy the following into the <b>dependencies</b> section of your project <b>build.gradle</b> file.</p>
                     <section class="code">
                         <pre class="line-numbers">1
 2
@@ -120,8 +121,10 @@ annotationProcessor <span class="string">'se.arkalix:kalix-processors:0.1.0'</sp
                     </section>
                     <p>Note that the libraries are only guaranteed to work with Java versions 11 and beyond. Make sure to declare what Java version to use in your <b>build.gradle</b> file, such as:</p>
                     <section class="code">
-                        <pre class="line-numbers">1</pre>
-                        <pre class="text">sourceCompatibility = <span class="string">11</span></pre>
+                        <pre class="line-numbers">1
+2</pre>
+                        <pre class="text">sourceCompatibility = <span class="string">11</span>
+targetCompatibility = <span class="string">11</span></pre>
                     </section>
                 </section>
             </section>
@@ -130,7 +133,8 @@ annotationProcessor <span class="string">'se.arkalix:kalix-processors:0.1.0'</sp
             <p>The work of documenting the source code and providing examples is currently on-going. Please refer to the library <a href="https://github.com/emanuelpalm/arrowhead-kalix">GitHub</a> repository for more information until this site gets updated with additional examples and descriptions.</p>
 
             <h2>How Mature Is It?</h2>
-            <p><a href="https://arrowhead.eu" target="_blank">Arrowhead Framework</a> is an on-going standardization and research effort aimed at enabling the creation of world-class <a href="https://arrowhead.eu/arrowheadframework/this-is-it">industrial automation systems</a>. Even if <b>ar:kalix</b> is in a usable condition, a substantial work remains before the framework has been properly standardized, which means that any implementation of it is bound to be unstable. Work on this library commensed as a response to the need for a suitable set of abstractions while evaluating and developing the framework standard. If you are interested in contributing to the maturity and further development of <b>ar:kalix</b>, in some way or another, please do not hesitate to contact Emanuel Palm, the original author of the library, via <b>[emanuel DOT palm AT arkalix DOT se]</b>.</p>
+            <p><a href="https://arrowhead.eu" target="_blank">Arrowhead Framework</a> is an on-going standardization and research effort aimed at enabling the creation of Industry 4.0 <a href="https://arrowhead.eu/arrowheadframework/this-is-it">industrial automation systems</a>. Even if <b>ar:kalix</b> is in a usable condition, a substantial work remains before the framework has been properly standardized, which means that any implementation of it is bound to be unstable. Work on this library commensed as a response to the need for a suitable set of abstractions while evaluating and developing the framework standard.</p>
+            <p>If you are interested in contributing to the maturity and further development of <b>ar:kalix</b>, in some way or another, please contact Emanuel Palm, the original author of the library, via <b>[emanuel DOT palm AT arkalix DOT se]</b>.</p>
         </article>
     </main>
     <footer>
