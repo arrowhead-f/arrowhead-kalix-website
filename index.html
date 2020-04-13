@@ -43,14 +43,14 @@
 16
 17</pre>
                 <pre class="text"><span class="keyword">var</span> <span class="variable">system</span> = <span class="keyword">new</span> ArSystem.Builder()​
-    .keyStore(<span class="variable">keyStore</span>)​
+    .identity(<span class="variable">identity</span>)​
     .trustStore(<span class="variable">trustStore</span>)​
     .build();​
 ​
 <span class="variable">system</span>.provide(<span class="keyword">new</span> HttpService()​
     .name(<span class="string">"kalix-example-service"</span>)​
     .encodings(<span class="constant">JSON</span>)​
-    .security(<span class="constant">TOKEN</span>)​
+    .accessPolicy(token())​
     .basePath(<span class="string">"/example"</span>)​
 
     .get(<span class="string">"/greeting"</span>, (<span class="variable">request</span>, <span class="variable">response</span>) -> {​
@@ -94,17 +94,17 @@
                         <pre class="text">&lt;dependency&gt;
     &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
     &lt;artifactId&gt;<span class="string">kalix-base</span>&lt;/artifactId&gt;
-    &lt;version&gt;<span class="string">0.1.1</span>&lt;/version&gt;
+    &lt;version&gt;<span class="string">0.2.0</span>&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
     &lt;artifactId&gt;<span class="string">kalix-core-plugins</span>&lt;/artifactId&gt;
-    &lt;version&gt;<span class="string">0.1.1</span>&lt;/version&gt;
+    &lt;version&gt;<span class="string">0.2.0</span>&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;<span class="string">se.arkalix</span>&lt;/groupId&gt;
     &lt;artifactId&gt;<span class="string">kalix-processors</span>&lt;/artifactId&gt;
-    &lt;version&gt;<span class="string">0.1.1</span>&lt;/version&gt;
+    &lt;version&gt;<span class="string">0.2.0</span>&lt;/version&gt;
     &lt;scope&gt;<span class="string">provided</span>&lt;/scope&gt;
 &lt;/dependency&gt;</pre>
                     </section>
@@ -121,9 +121,9 @@
                         <pre class="line-numbers">1
 2
 3</pre>
-                        <pre class="text">implementation <span class="string">'se.arkalix:kalix-base:0.1.1'</span>
-implementation <span class="string">'se.arkalix:kalix-core-plugins:0.1.1'</span>
-annotationProcessor <span class="string">'se.arkalix:kalix-processors:0.1.1'</span></pre>
+                        <pre class="text">implementation <span class="string">'se.arkalix:kalix-base:0.2.0'</span>
+implementation <span class="string">'se.arkalix:kalix-core-plugins:0.2.0'</span>
+annotationProcessor <span class="string">'se.arkalix:kalix-processors:0.2.0'</span></pre>
                     </section>
                     <p>Note that the libraries are only guaranteed to work with Java versions 11 and beyond. Make sure to declare what Java version to use in your <b>build.gradle</b> file, such as:</p>
                     <section class="code">

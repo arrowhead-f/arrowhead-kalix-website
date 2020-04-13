@@ -4,11 +4,16 @@ se.arkalix.descriptor
 se.arkalix.dto
 se.arkalix.dto.binary
 se.arkalix.dto.json
+se.arkalix.dto.json.value
 se.arkalix.net.http
 se.arkalix.net.http.client
+se.arkalix.net.http.consumer
 se.arkalix.net.http.service
 se.arkalix.plugin
+se.arkalix.query
 se.arkalix.security
+se.arkalix.security.access
+se.arkalix.security.identity
 se.arkalix.util
 se.arkalix.util.annotation
 se.arkalix.util.concurrent

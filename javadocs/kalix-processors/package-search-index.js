@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"se.arkalix.dto"},{"l":"se.arkalix.dto.types"},{"l":"se.arkalix.dto.util"}]

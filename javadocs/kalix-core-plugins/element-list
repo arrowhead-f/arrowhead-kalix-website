@@ -1,3 +1,2 @@
-se.arkalix.core.plugin.orc
-se.arkalix.core.plugin.srv
-se.arkalix.core.plugin.srv.dto
+se.arkalix.core.plugin
+se.arkalix.core.plugin.dto
