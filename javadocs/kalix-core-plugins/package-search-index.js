@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"se.arkalix.core.plugin"},{"l":"se.arkalix.core.plugin.dto"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"se.arkalix.core.plugin"},{"l":"se.arkalix.core.plugin.cp"},{"l":"se.arkalix.core.plugin.eh"},{"l":"se.arkalix.core.plugin.or"},{"l":"se.arkalix.core.plugin.sr"}]
