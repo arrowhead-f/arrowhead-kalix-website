@@ -5,6 +5,7 @@ se.arkalix.dto
 se.arkalix.dto.binary
 se.arkalix.dto.json
 se.arkalix.dto.json.value
+se.arkalix.net
 se.arkalix.net.http
 se.arkalix.net.http.client
 se.arkalix.net.http.consumer
